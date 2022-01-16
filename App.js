@@ -8,7 +8,8 @@
 
  import React from 'react';
  import MaterialIcons from "react-native-vector-icons/MaterialIcons"
- import GamingImg from "./assets/gaming.svg"
+ import GamingImg from "./src/assets/gaming.svg"
+ import HomeScreen from "./src/screens/HomeScreen"
  
  import {
    StyleSheet,
@@ -17,15 +18,36 @@
    TouchableOpacity,
    SafeAreaView
  } from 'react-native';
+
+ import { NavigationContainer } from '@react-navigation/native'
+ import { createNativeStackNavigator } from "@react-navigation/native-stack"
+
+ const Stack = createNativeStackNavigator();
  
- const App =() => {
+  const App = () => {
+    return(
+      <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen component={Main} name="Main" options={{headerShown:false}} />
+        <Stack.Screen component={HomeScreen} name="Home" options={{headerShown:false}} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    )
+  }
+
+
+ const Main =({navigation}) => {
    return (
      <SafeAreaView style={styles.safeArea}>
-       <View>
-         <Text style={{fontSize: 30, fontWeight: 'bold', color: '#20315f'}}>hmm</Text>
+       <View style={styles.title}>
+         <Text style={{fontSize: 30, fontWeight: 'bold', color: '#20315f'}}>GameStore</Text>
        </View>
-       <GamingImg width={300} height={300} />
-       <TouchableOpacity style={styles.actionBtn}>
+       <View style={styles.svgContainer}>
+        <GamingImg width={300} height={300} style={{transform: [{rotate: '-15deg'}]}} />
+       </View>
+       <TouchableOpacity style={styles.actionBtn}
+        onPress={() => navigation.navigate('Home')}
+        >
          <Text style={styles.actionBtnText}>Let's Begin</Text>
          <MaterialIcons name="arrow-forward-ios" size={22} color="#fff" />
        </TouchableOpacity>
@@ -40,6 +62,14 @@
      alignItems: 'center',
      backgroundColor: "#fff"
    }, 
+   title: {
+    marginTop: 20
+   },
+   svgContainer: {
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center'
+   },
    actionBtn: {
      backgroundColor: "#AD40AF",
      padding: 20,
@@ -47,6 +77,7 @@
      borderRadius: 5, 
      flexDirection: "row",
      justifyContent: "space-between",
+     marginBottom: 50
    },
    actionBtnText: {
      fontWeight: "bold",
