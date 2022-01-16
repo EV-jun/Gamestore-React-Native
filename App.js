@@ -8,6 +8,7 @@
 
  import React from 'react';
  import MaterialIcons from "react-native-vector-icons/MaterialIcons"
+ import GamingImg from "./assets/gaming.svg"
  
  import {
    StyleSheet,
@@ -23,6 +24,7 @@
        <View>
          <Text style={{fontSize: 30, fontWeight: 'bold', color: '#20315f'}}>hmm</Text>
        </View>
+       <GamingImg width={300} height={300} />
        <TouchableOpacity style={styles.actionBtn}>
          <Text style={styles.actionBtnText}>Let's Begin</Text>
          <MaterialIcons name="arrow-forward-ios" size={22} color="#fff" />
