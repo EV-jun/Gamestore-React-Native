@@ -8,11 +8,10 @@ import Settings from "../screens/SettingsScreen"
 import { createDrawerNavigator } from "@react-navigation/drawer"
 import CustomDrawer from '../components/CustomDrawer'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import TabNavigator from './TabNavigator'
 // Navigation Drawer that shows the side bar menu
 
 const Appstack = () => {
-    // const Stack = createNativeStackNavigator();
     const Drawer = createDrawerNavigator();
     return (
         <Drawer.Navigator 
@@ -27,7 +26,8 @@ const Appstack = () => {
                 
         >
             <Drawer.Screen 
-                component={Home} 
+                // component={Home} 
+                component={TabNavigator} 
                 name="Home" 
                 options={{
                     drawerIcon: ({color}) => (

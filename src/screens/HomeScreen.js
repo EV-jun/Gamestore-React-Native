@@ -79,6 +79,7 @@ const HomeScreen = ({navigation}) => {
                     title={game.title}
                     subTitle={game.subtitle}
                     isFree={game.isFree}
+                    onPress={() => navigation.navigate('GameDetails', {title: game.title})}
                     />)
                 }
                 {gamesTab == 2 && 
@@ -89,6 +90,7 @@ const HomeScreen = ({navigation}) => {
                     subTitle={game.subtitle}
                     isFree={game.isFree}
                     price={game.price}
+                    onPress={() => navigation.navigate('GameDetails', {title: game.title})}
                     />)
                 }
             </ScrollView>

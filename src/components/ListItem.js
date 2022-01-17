@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, Image, TouchableOpacity } from "react-native"
 import { windowWidth } from "../utils/Dimensions"
 
-function ListItem({photo, subTitle, title, isFree, price}) {
+function ListItem({photo, subTitle, title, isFree, price, onPress}) {
     return (
         <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20}}>
             <View style={{flexDirection: 'row', alignItems: 'center', flex: 1}}>
@@ -16,6 +16,7 @@ function ListItem({photo, subTitle, title, isFree, price}) {
             </View>
             
             <TouchableOpacity 
+                onPress={onPress}
                 style={{backgroundColor: '#0AADA8', padding: 10, width: 100, borderRadius: 10}}>
                 <Text style={{color: "#fff", textAlign: 'center', fontSize: 14}}>
                     {isFree == "Yes" && "Play"}
